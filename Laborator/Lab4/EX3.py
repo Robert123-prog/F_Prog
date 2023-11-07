@@ -58,42 +58,42 @@ def match(cth, ctc):
             h_rock(l)
             c_choice(l)
 
-            if (h_rock(l, 1) and c_choice(l) == "Paper") or (
-                    h_choice(l) == "Paper" and c_choice(l) == "Scissors") or (
-                    h_choice(l) == "Scissors" and c_choice(l) == "Rock"):
+            if (h_rock(l) and c_choice(l) == "Paper") or (
+                    h_paper(l) and c_choice(l) == "Scissors") or (
+                    h_scissors(l) and c_choice(l) == "Rock"):
                 ctc += 1
 
-            if (h_choice(l) == "Rock" and c_choice(l) == "Scissors") or (
-                    h_choice(l) == "Paper" and c_choice(l) == "Rock") or (
-                    h_choice(l) == "Scissors" and c_choice(l) == "Paper"):
+            if (h_rock(l) and c_choice(l) == "Scissors") or (
+                    h_paper(l) and c_choice(l) == "Rock") or (
+                    h_scissors(l) and c_choice(l) == "Paper"):
                 cth += 1
 
         if ch == 2:
-            h_choice(l, 2)
+            h_paper(l)
             c_choice(l)
 
-            if (h_choice(l) == "Rock" and c_choice(l) == "Paper") or (
-                    h_choice(l) == "Paper" and c_choice(l) == "Scissors") or (
-                    h_choice(l) == "Scissors" and c_choice(l) == "Rock"):
+            if (h_rock(l) and c_choice(l) == "Paper") or (
+                    h_paper(l) and c_choice(l) == "Scissors") or (
+                    h_scissors(l) and c_choice(l) == "Rock"):
                 ctc += 1
 
-            if (h_choice(l) == "Rock" and c_choice(l) == "Scissors") or (
-                    h_choice(l) == "Paper" and c_choice(l) == "Rock") or (
-                    h_choice(l) == "Scissors" and c_choice(l) == "Paper"):
+            if (h_rock(l) and c_choice(l) == "Scissors") or (
+                    h_paper(l) and c_choice(l) == "Rock") or (
+                    h_scissors(l) and c_choice(l) == "Paper"):
                 cth += 1
 
         if ch == 3:
-            h_choice(l ,3)
+            h_scissors(l)
             c_choice(l)
 
-            if (h_choice(l) == "Rock" and c_choice(l) == "Paper") or (
-                    h_choice(l) == "Paper" and c_choice(l) == "Scissors") or (
-                    h_choice(l) == "Scissors" and c_choice(l) == "Rock"):
+            if (h_rock(l) and c_choice(l) == "Paper") or (
+                    h_paper(l) and c_choice(l) == "Scissors") or (
+                    h_scissors(l) and c_choice(l) == "Rock"):
                 ctc += 1
 
-            if (h_choice(l) == "Rock" and c_choice(l) == "Scissors") or (
-                    h_choice(l) == "Paper" and c_choice(l) == "Rock") or (
-                    h_choice(l) == "Scissors" and c_choice(l) == "Paper"):
+            if (h_rock(l) and c_choice(l) == "Scissors") or (
+                    h_paper(l) and c_choice(l) == "Rock") or (
+                    h_scissors(l) and c_choice(l) == "Paper"):
                 cth += 1
 
 
