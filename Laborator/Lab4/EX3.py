@@ -1,8 +1,8 @@
 import random
 
-
 l = ["Rock", "Paper", "Scissors"]
 def h_choice(list, ch):
+
 
     if ch == 1:
         print("Rock")
@@ -19,34 +19,10 @@ def h_choice(list, ch):
     else:
         return "Invalid choice"
 
-def h_rock(list):
-    print("Rock")
-    return list[0]
-
-def h_paper(list):
-    print("Paper")
-    return list[1]
-
-def h_scissors(list):
-    print("Scissors")
-    return list[2]
-
 
 def c_choice(list):
 
-    ch = random.choice(list)
-
-    if ch == 1:
-        print(list[0])
-        return list[0]
-
-    elif ch == 2:
-        print(list[1])
-        return list[1]
-
-    else:
-        print(list[2])
-        return list[2]
+    return random.choice(list)
 
 def menu():
     return '''
@@ -60,72 +36,46 @@ def menu():
     '''
 
 
-def match(cth, ctc):
+def match():
 
-    for i in range(3):
-        print(menu())
+    ctc = 0
+    cth = 0
 
-        ch = int(input('ch ='))
-        c_choice(l)
+    while cth < 2 and ctc < 2:
+       print(menu())
 
-        if ch == 1:
-            h_rock(l)
+       ch = int(input('ch = '))
 
-
-            if (h_rock(l) and c_choice(l) == "Paper") or (
-                    h_paper(l) and c_choice(l) == "Scissors") or (
-                    h_scissors(l) and c_choice(l) == "Rock"):
-                ctc += 1
-                print("You lose")
-
-            elif (h_rock(l) and c_choice(l) == "Scissors") or (
-                    h_paper(l) and c_choice(l) == "Rock") or (
-                    h_scissors(l) and c_choice(l) == "Paper"):
-                cth += 1
-                print("You win")
-
-        elif ch == 2:
-            h_paper(l)
+       ch1 = h_choice(l, ch)
+       ch2 = c_choice(l)
 
 
-            if (h_rock(l) and c_choice(l) == "Paper") or (
-                    h_paper(l) and c_choice(l) == "Scissors") or (
-                    h_scissors(l) and c_choice(l) == "Rock"):
-                ctc += 1
-                print("You lose")
+       if ((ch1 == 'Rock' and ch2 == 'Paper') or
+                (ch1 == 'Paper' and ch2 == 'Scissors') or
+                (ch1 == 'Scissors' and ch2 == 'Rock')):
+                 ctc += 1
+                 print(ch2)
+                 print("comp: ", ctc, " : ","you:", cth)
 
-            elif (h_rock(l) and c_choice(l) == "Scissors") or (
-                    h_paper(l) and c_choice(l) == "Rock") or (
-                    h_scissors(l) and c_choice(l) == "Paper"):
-                cth += 1
-                print("You win")
+       elif ((ch1 == 'Rock' and ch2 == 'Scissors') or
+              (ch1 == 'Paper' and ch2 == 'Rock') or
+              (ch1 == 'Scissors' and ch2 == 'Paper')):
+            cth += 1
+            print(ch2)
+            print("comp: ", ctc, " : ", "you:", cth)
 
-        elif ch == 3:
-            h_scissors(l)
-
-
-            if (h_rock(l) and c_choice(l) == "Paper") or (
-                    h_paper(l) and c_choice(l) == "Scissors") or (
-                    h_scissors(l) and c_choice(l) == "Rock"):
-                ctc += 1
-                print("You lose")
-
-            elif (h_rock(l) and c_choice(l) == "Scissors") or (
-                    h_paper(l) and c_choice(l) == "Rock") or (
-                    h_scissors(l) and c_choice(l) == "Paper"):
-                cth += 1
-                print("You win")
-
-        else:
-            print("Invalid option!")
+       else:
+            print(ch2)
+            print("Draw")
+            print("comp: ", ctc, " : ", "you:", cth)
 
     if ctc > cth:
-        return "Computer wins"
+        print("You lose!")
 
     else:
-        return "You win"
+        print("You win!")
 
 def main():
-    match(0, 0)
+    match()
 
 main()
