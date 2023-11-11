@@ -1,3 +1,5 @@
+from ui import menu
+
 import random
 
 l = ["Rock", "Paper", "Scissors"]
@@ -24,17 +26,6 @@ def c_choice(list):
 
     return random.choice(list)
 
-def menu():
-    return '''
-    
-        1 - Rock
-        
-        2 - Paper
-        
-        3 - Scissors 
-        
-    '''
-
 
 def match():
 
@@ -42,7 +33,7 @@ def match():
     cth = 0
 
     while cth < 2 and ctc < 2:
-       print(menu())
+       print(menu.menu())
 
        ch = int(input('ch = '))
 
@@ -74,8 +65,3 @@ def match():
 
     else:
         print("You win!")
-
-def main():
-    match()
-
-main()
