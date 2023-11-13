@@ -34,7 +34,4 @@ def main():
     repl(word, new_word)
     count(new_word)
 
-
-
-
 main()
