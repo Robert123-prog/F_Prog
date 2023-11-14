@@ -4,6 +4,7 @@ t = turtle.Pen()
 t.speed(3)
 
 
+
 def A(t):
     t.up()
     t.forward(7)
@@ -563,7 +564,7 @@ def Dot(t):
      t.down()
 
 
-def Frage(t):
+def Quesmark(t):
     t.up()
     t.left(90)
     t.forward(15)
@@ -588,7 +589,7 @@ def Frage(t):
     t.down()
 
 
-def Ausrufezeichen(t):
+def Exclamation(t):
     t.up()
     t.left(90)
     t.forward(15)
@@ -613,12 +614,5 @@ def New_Paragraph(t):
     t.forward(730)
     t.right(180)
     t.down()
-
-print(N(t))
-print(I(t))
-print(G(t))
-print(G(t))
-print(E(t))
-print(R(t))
 
 
