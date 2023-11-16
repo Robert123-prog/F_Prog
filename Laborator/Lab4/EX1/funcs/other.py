@@ -3,6 +3,6 @@ def begin(t):
     t.forward(-300)
     t.down()
 
-def save_input(input):
+def save_input_man(input):
     with open('history.txt', 'a') as f:
         f.write(input + '\n')

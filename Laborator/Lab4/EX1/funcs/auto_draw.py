@@ -8,8 +8,6 @@ d = {'A': A, 'B': B, 'C': C, 'D': D, 'E': E, 'F': F, 'G': G, 'H': H, 'I': I, 'J'
 def ad():
     word = input("word = ")
 
-    save_input(word)
-
     word = word.upper()
     l = list(word)
 
@@ -23,8 +21,8 @@ def ad():
     turtle.done()
 
 
-if __name__ == "__main__":
-    ad()
+# if __name__ == "__main__":
+#     ad()
 
 
 

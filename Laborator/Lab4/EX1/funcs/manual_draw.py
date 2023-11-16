@@ -1,6 +1,12 @@
-from draw import *
+from funcs.draw import *
+import turtle
 
-d = {'W':fwd(), 'S':bckw(), 'A':rotleft(), 'D':rotright(), 'F':pup(), 'G':pdown()}
 
-while True:
-    pass
+
+def draw_man():
+
+    keys()
+    turtle.listen()
+    turtle.done()
+
+draw_man()

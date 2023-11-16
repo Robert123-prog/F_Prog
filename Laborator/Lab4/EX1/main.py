@@ -1,8 +1,10 @@
+from funcs.manual_draw import draw_man
 from ui.menu import menu
-from funcs.auto_draw import ad
+#from funcs.auto_draw import ad
+
 
 '''
-ad func, scrie documentatie!!!!!
+scrie documentatie!!!!!
 '''
 
 
@@ -16,7 +18,7 @@ def main():
        ad()
 
    if ch == 2:
-        pass
+        draw_man()
 
    else:
        return 0
