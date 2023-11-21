@@ -13,11 +13,3 @@ def repl(word, new_word):
 
     return count
 
-def main():
-    word = input("word = ")
-    new_word = input("new word = ")
-
-    count = repl(word, new_word)
-    print(count)
-
-main()

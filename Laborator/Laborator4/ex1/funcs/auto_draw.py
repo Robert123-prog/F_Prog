@@ -1,5 +1,5 @@
-from funcs.characters import *
-from funcs.other import *
+from ex1.funcs.characters import *
+from ex1.funcs.other import begin
 
 '''
 Am creat un dictionar care are ca valori functiile care deseneaza fiecare litera 

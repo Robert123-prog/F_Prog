@@ -1,4 +1,4 @@
-from ui import menu
+from ex3.ui.menu import menu
 
 import random
 
@@ -44,7 +44,7 @@ def match():
     '''
 
     while cth < 2 and ctc < 2:
-       print(menu.menu())
+       print(menu())
 
        ch = int(input('ch = '))
 

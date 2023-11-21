@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa09fc55-1ace-4b3e-a3f8-3be7b6d1d15e" name="Changes" comment="" />
+    <list default="true" id="fa09fc55-1ace-4b3e-a3f8-3be7b6d1d15e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Seminar/SEM7/ex5/dreieck.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Seminar/SEM7/ex5/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Seminar/SEM7/ex5/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Seminar/SEM7/ex6/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Seminar/SEM7/ex6/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Seminar/SEM7/ex6/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Seminar/SEM7/ex6/zahler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Seminar/SEM7/ex6/zahlergrenze.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab4/EX1/funcs/auto_draw.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab4/EX1/funcs/auto_draw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab4/EX1/funcs/draw.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab4/EX1/funcs/draw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab4/EX1/funcs/manual_draw.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab4/EX1/funcs/manual_draw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab4/EX1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab4/EX1/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab4/EX2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab4/EX2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab4/EX3/funcs/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab4/EX3/funcs/functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab4/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Lab4/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Seminar/SEM7/ex2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Seminar/SEM7/ex2/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Seminar/SEM7/ex5/kreis.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Seminar/SEM7/ex5/kreis.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2WtdHtFZ0Y5LpkqtsKxmK5nsVGF" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -18,7 +39,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Proiecte/Proiecte faculta/Python/PycharmProjects/Laborator/Lab4"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

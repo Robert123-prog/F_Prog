@@ -1,6 +1,6 @@
-from funcs.manual_draw import draw_man
-from ui.menu import menu
-from funcs.auto_draw import ad
+from ex1.funcs.manual_draw import draw_man
+from ex1.ui.menu import menu
+from ex1.funcs.auto_draw import ad
 
 
 '''

@@ -1,5 +1,6 @@
 from ex2.test import test_red
 from ex2.bruch import Bruch
+
 def main():
     b = Bruch(14, 22)
     b.erw(3)
