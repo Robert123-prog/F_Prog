@@ -9,3 +9,4 @@ class Dish(Identifizierbar):
         self.portion_size = portion_size
 
 
+

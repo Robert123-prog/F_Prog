@@ -1,11 +1,11 @@
 from abc import ABC,abstractmethod
 
 
-#da commit
+
 class DataRepo(ABC):
 
-    def __init__(self):
-        pass
+    def __init__(self, filename):
+        self.filename = filename
 
     @abstractmethod
     def save(self):
@@ -16,13 +16,13 @@ class DataRepo(ABC):
     def load(self):
         pass
 
-    @abstractmethod
-    def read_file(self):
-        pass
+    # @abstractmethod
+    # def read_file(self):
+    #     pass
 
-    @abstractmethod
-    def write_to_file(self, string):
-        pass
+    # @abstractmethod
+    # def write_to_file(self, string):
+    #     pass
 
     @abstractmethod
     def convert_to_string(self):

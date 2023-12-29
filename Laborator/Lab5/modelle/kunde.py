@@ -1,4 +1,4 @@
-from identifizierbar import Identifizierbar
+from modelle.identifizierbar import Identifizierbar
 
 class Customer(Identifizierbar):
 
@@ -7,4 +7,5 @@ class Customer(Identifizierbar):
         self.name = name
         self.adresse = adresse
 
-
+    def __repr__(self):
+        return f'Customer: ID = {self.id}, Name = {self.name}, Address = {self.adresse}'
