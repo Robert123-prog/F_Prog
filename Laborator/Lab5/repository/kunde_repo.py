@@ -21,7 +21,7 @@ class CustomerRepo(DataRepo):
 
 
     def save(self):
-        with open(self.filename, 'ab') as f:
+        with open(self.filename, 'wb') as f:
             for customer in self.customers:
                 pickle.dump(customer, f)
                 f.write(b'\n')  # Add a separator between objects

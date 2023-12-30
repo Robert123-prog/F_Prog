@@ -14,7 +14,7 @@ class CookedDishRepo(DataRepo):
         self.cookedDishes.append(cooked_dish)
 
     def save(self):
-        with open(self.filename, 'ab') as f:
+        with open(self.filename, 'wb') as f:
             for cooked_Dish in self.cookedDishes:
                 pickle.dump(cooked_Dish, f)
                 f.write(b'\n')  # Add a separator between objects
@@ -34,6 +34,12 @@ class CookedDishRepo(DataRepo):
                         # Reset file position if pickle fails
                     f.seek(position)
                     f.readline()  # Move to the next line
+
+    def get_cookedDishID(self, dish_id):
+        for dish in self.cookedDishes:
+            if dish.id == dish_id:
+                return dish
+        return None
 
 
     # def read_file(self):
@@ -66,17 +72,4 @@ class CookedDishRepo(DataRepo):
 
     def convert_from_string(self, filename, str_list):
         pass
-
-d1 = Cooked_Dish(1, 100, 10)
-d2 = Cooked_Dish(2, 50, 20)
-
-repo = CookedDishRepo()
-repo.add_cookedDishes(d1)
-repo.add_cookedDishes(d2)
-
-repo.save()
-repo.load()
-
-for cooked_dish in repo.cookedDishes:
-    print(cooked_dish)
 

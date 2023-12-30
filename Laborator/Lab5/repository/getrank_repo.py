@@ -13,7 +13,7 @@ class DrinkRepo(DataRepo):
         self.drinks.append(drink)
 
     def save(self):
-        with open(self.filename, 'ab') as f:
+        with open(self.filename, 'wb') as f:
             for drink in self.drinks:
                 pickle.dump(drink, f)
                 f.write(b'\n')  # Add a separator between objects
@@ -33,6 +33,11 @@ class DrinkRepo(DataRepo):
                         # Reset file position if pickle fails
                     f.seek(position)
                     f.readline()  # Move to the next line
+
+    def get_drink_id(self, drink_id):
+        for drink in self.drinks:
+            if drink.id == drink_id:
+                return drink
 
 
     # def read_file(self):
@@ -65,15 +70,3 @@ class DrinkRepo(DataRepo):
         pass
         #cum plm convertesc un string la un obiect
 
-dr1 = Drink(1, 10, 20)
-dr2 = Drink(2, 15, 30)
-
-repo = DrinkRepo()
-repo.add_drinks(dr1)
-repo.add_drinks(dr2)
-
-repo.save()
-repo.load()
-
-for drink in repo.drinks:
-    print(drink)

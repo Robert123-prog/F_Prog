@@ -18,3 +18,23 @@ class Controller:
     def add_customer(self, customerName, customerAdress, customerID):
         customer = Customer(customerName, customerAdress, customerID)
         return self.customer_repo.add_customers(customer)
+
+    def add_drink(self, id, price, alc_content):
+        drink = Drink(id, price, alc_content)
+        return self.drink_repo.add_drinks(drink)
+
+    def add_cooked_dish(self, id, price, prep_time, portion_size):
+        dish = Cooked_Dish(id, price, prep_time)
+        return self.cookedDish_repo.add_cookedDishes(dish)
+
+    def add_order(self, id, customer_id, list_of_dish_id, list_of_drink_id):
+        order = Order(id, customer_id, list_of_dish_id, list_of_drink_id)
+        return self.order_repo.add_orders(order)
+
+    def show_total_cost(self, order: Order):
+        return order.calc_cost(self.cookedDish_repo, self.drink_repo)
+
+    def show_bill(self, order: Order):
+        return order.show_bill(self.cookedDish_repo, self.drink_repo)
+
+

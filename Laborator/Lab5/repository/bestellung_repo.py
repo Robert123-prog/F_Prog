@@ -14,7 +14,7 @@ class OrderRepo(DataRepo):
         self.orders.append(order)
 
     def save(self):
-        with open(self.filename, 'ab') as f:
+        with open(self.filename, 'wb') as f:
             for order in self.orders:
                 pickle.dump(order, f)
                 f.write(b'\n')  # Add a separator between objects
@@ -65,8 +65,8 @@ class OrderRepo(DataRepo):
     def convert_from_string(self, filename, string):
         pass
 
-o1 = Order(1, 1, [1, 2], [1, 2], 300)
-o2 = Order(2, 2, [1], [2], 200)
+o1 = Order(1, 1, [1, 2], [1, 2])
+o2 = Order(2, 2, [1], [2])
 
 repo = OrderRepo()
 repo.add_orders(o1)

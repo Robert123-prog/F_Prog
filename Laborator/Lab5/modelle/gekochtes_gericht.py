@@ -1,4 +1,5 @@
 from modelle.gericht import Dish
+from modelle.identifizierbar import Identifizierbar
 
 class Cooked_Dish(Dish):
     def __init__(self, id, price, preparation_time, portion_size = 350):
