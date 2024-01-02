@@ -2,76 +2,80 @@ class UI:
     def __init__(self, choice):
         self.choice = choice
 
-    def main_menu(self):
-        print("""
-        
-             1. Orders
-             2. Database
-        
-        
-            """)
 
-    def orders(self):
-        print("""
+    def run(self):
+        pass
 
-            1. Save Order
-            2. Load Order
-            3. Add Order
-
-            """)
-
-    def database(self):
-        print('''
-        
-            1. Modify Menu
-            2. Modify Customers
-        
-             ''')
-
-    def menu(self):
-        print("""
-        
-            1. Modify Dishes
-            2. Modify Cooked Dishes
-            3. Modify Drinks
-        
-            """)
-
-    def dishes(self):
-        print("""
-        
-            1. Save Dish
-            2. Load Dish
-            3. Add Dish
-        
-            """)
-
-    def cooked_dishes(self):
-        print("""
-        
-            1. Save Cooked Dish
-            2. Load Cooked Dish
-            3. Add Cooked Dish
-        
-            """)
-
-    def drinks(self):
-        print("""
-        
-            1. Save Drink
-            2. Load Drink
-            3. Add Drink
-        
-            """)
-
-    def customers(self):
-        print("""
-        
-            1. Save Customer
-            2. Load Customer
-            3. Add Customer
-        
-            """)
+    # def main_menu(self):
+    #     print("""
+    #
+    #          1. Orders
+    #          2. Database
+    #
+    #
+    #         """)
+    #
+    # def orders(self):
+    #     print("""
+    #
+    #         1. Save Order
+    #         2. Load Order
+    #         3. Add Order
+    #
+    #         """)
+    #
+    # def database(self):
+    #     print('''
+    #
+    #         1. Modify Menu
+    #         2. Modify Customers
+    #
+    #          ''')
+    #
+    # def menu(self):
+    #     print("""
+    #
+    #         1. Modify Dishes
+    #         2. Modify Cooked Dishes
+    #         3. Modify Drinks
+    #
+    #         """)
+    #
+    # def dishes(self):
+    #     print("""
+    #
+    #         1. Save Dish
+    #         2. Load Dish
+    #         3. Add Dish
+    #
+    #         """)
+    #
+    # def cooked_dishes(self):
+    #     print("""
+    #
+    #         1. Save Cooked Dish
+    #         2. Load Cooked Dish
+    #         3. Add Cooked Dish
+    #
+    #         """)
+    #
+    # def drinks(self):
+    #     print("""
+    #
+    #         1. Save Drink
+    #         2. Load Drink
+    #         3. Add Drink
+    #
+    #         """)
+    #
+    # def customers(self):
+    #     print("""
+    #
+    #         1. Save Customer
+    #         2. Load Customer
+    #         3. Add Customer
+    #
+    #         """)
 
 
 

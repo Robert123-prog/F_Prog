@@ -1,29 +1,30 @@
-from modelle.bestellung import Order
-from modelle.gekochtes_gericht import Cooked_Dish
-from modelle.getrank import Drink
-from repository.getrank_repo import DrinkRepo
-from repository.gekochtes_gericht_repo import CookedDishRepo
+from modelle.kunde import Customer
+from repository.kunde_repo import CustomerRepo
 
 def main():
-    cd_repo = CookedDishRepo()
-    dr_repo = DrinkRepo()
-    d1 = Cooked_Dish(1, 100, 10)
-    d2 = Cooked_Dish(2, 200, 20)
-    d3 = Cooked_Dish(3, 100, 15)
+   c1 = Customer(1, 'David', 'Lazaret')
+   c2 = Customer(2, 'Robert', 'Livezii')
+   c3 = Customer(3, 'Davdutz', 'Livezii')
 
-    dr1 = Drink(1, 10, 15)
-    dr2 = Drink(2, 30, 30)
 
-    cd_repo.add_cookedDishes(d1)
-    cd_repo.add_cookedDishes(d2)
-    cd_repo.add_cookedDishes(d3)
-    cd_repo.save()
+   repo = CustomerRepo()
 
-    dr_repo.add_drinks(dr1)
-    dr_repo.add_drinks(dr2)
-    dr_repo.save()
+   repo.add_customers(c1)
+   repo.add_customers(c2)
+   repo.add_customers(c3)
+   repo.save()
 
-    o1 = Order(1, 1, [1, 2, 3], [1, 2])
-    print(o1.calc_cost(cd_repo, dr_repo))
+   #metoda de update name inca nu merge
+   #CAUTARILE DUPA CLIENTI SI ADRESE TREBUIE FACUTE CU FILTER()
+   #NU LE STERGE PE CELE EXISTENTE DACA NU MERGE CU FILTER
+   #MAI VEZI METODELE DE WRITE SI CONVERT:((((
+
+   # repo.update_cust_name('David', 'Dani')
+   # repo.update_cust_name('Robert', 'Radu')
+
+
+   # cust = repo.load_to_list()
+   # print(cust)
 
 main()
+

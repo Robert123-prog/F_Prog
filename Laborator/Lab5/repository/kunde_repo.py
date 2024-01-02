@@ -55,6 +55,60 @@ class CustomerRepo(DataRepo):
                     f.seek(position)
                     f.readline()  # Move to the next line
 
+    def load_to_list(self): #se foloseste pentru search_after_partial_name
+        self.customers = []
+        with open(self.filename, 'rb') as f:
+            while True:
+                position = f.tell()  # Get current file position
+                try:
+                    customer = pickle.load(f)
+                    self.customers.append(customer)
+                except EOFError:
+                    break
+                except pickle.UnpicklingError:
+                    # Reset file position if pickle fails
+                    f.seek(position)
+                    f.readline()  # Move to the next line
+
+        return self.customers
+
+
+    def search_after_partial_name(self, partial_name):
+        matching_customers = []
+        all_customers = self.load_to_list()
+
+        partial_name = partial_name.lower()
+
+        for customer in all_customers:
+            if partial_name in customer.name.lower():
+                matching_customers.append(customer)
+
+        return matching_customers
+
+    def search_after_partial_address(self, partial_address):
+        matching_addresses = []
+        all_customers = self.load_to_list()
+
+        partial_address = partial_address.lower()
+
+        for customer in all_customers:
+            if partial_address in customer.adresse.lower():
+                matching_addresses.append(customer)
+
+        return matching_addresses
+
+    def update_cust_name(self, old_name: str, new_name: str):
+        customers = self.load_to_list()
+
+        for customer in customers:
+            if customer.name == old_name:
+                customer.name = new_name
+                break
+
+        with open(self.filename, 'wb') as f:
+            for customer in customers:
+                pickle.dump(customer, f)
+                f.write(b'\n')  # Add a separator between objects
 
 
     # def read_file(self):
@@ -94,19 +148,3 @@ class CustomerRepo(DataRepo):
     def convert_from_string(self, filename, string):
         pass
 
-repo = CustomerRepo()
-k1 = Customer("David", "Lazaret", 1)
-k2 = Customer("Robert", "Livezii", 2)
-k3 = Customer("Radu", "Prund", 3)
-
-repo.add_customers(k1)
-repo.add_customers(k2)
-repo.add_customers(k3)
-
-repo.save()
-repo.load()
-
-for customer in repo.customers:
-    print(customer)
-
-#print(repo.convert_to_string())
