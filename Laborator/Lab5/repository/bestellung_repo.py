@@ -1,6 +1,9 @@
 import pickle
 from modelle.bestellung import Order
 from repository.datarepo import DataRepo
+from repository.gekochtes_gericht_repo import CookedDishRepo
+from repository.getrank_repo import DrinkRepo
+
 
 class OrderRepo(DataRepo):
 
@@ -20,7 +23,25 @@ class OrderRepo(DataRepo):
                 f.write(b'\n')  # Add a separator between objects
 
     def load(self):
-        self.orders = []
+        orders = []
+        with open(self.filename, 'rb') as f:
+            while True:
+                position = f.tell()  # Get current file position
+                try:
+                    order = pickle.load(f)
+                    orders.append(order)
+                except EOFError:
+                    break
+                except pickle.UnpicklingError:
+                        # Reset file position if pickle fails
+                    f.seek(position)
+                    f.readline()  # Move to the next line
+
+        for el in orders:
+            self.orders.append(el)
+
+    def load_to_list(self): #se foloseste pentru search_after_partial_name
+        orders = []
         with open(self.filename, 'rb') as f:
             while True:
                 position = f.tell()  # Get current file position
@@ -30,9 +51,14 @@ class OrderRepo(DataRepo):
                 except EOFError:
                     break
                 except pickle.UnpicklingError:
-                        # Reset file position if pickle fails
+                    # Reset file position if pickle fails
                     f.seek(position)
                     f.readline()  # Move to the next line
+
+        for el in orders:
+            self.orders.append(el)
+
+        return self.orders
 
 
 
@@ -65,15 +91,4 @@ class OrderRepo(DataRepo):
     def convert_from_string(self, filename, string):
         pass
 
-o1 = Order(1, 1, [1, 2], [1, 2])
-o2 = Order(2, 2, [1], [2])
 
-repo = OrderRepo()
-repo.add_orders(o1)
-repo.add_orders(o2)
-
-repo.save()
-repo.load()
-
-for order in repo.orders:
-    print(order)

@@ -39,6 +39,23 @@ class DrinkRepo(DataRepo):
             if drink.id == drink_id:
                 return drink
 
+    def load_to_list(self): #se foloseste pentru search_after_partial_name
+        self.drinks = []
+        with open(self.filename, 'rb') as f:
+            while True:
+                position = f.tell()  # Get current file position
+                try:
+                    drink = pickle.load(f)
+                    self.drinks.append(drink)
+                except EOFError:
+                    break
+                except pickle.UnpicklingError:
+                    # Reset file position if pickle fails
+                    f.seek(position)
+                    f.readline()  # Move to the next line
+
+        return self.drinks
+
 
     # def read_file(self):
     #     file_content = []

@@ -62,6 +62,15 @@ class Order(Identifizierbar):
         result1, result2 = self.bill(dish_repo, drink_repo)
         return f'The List of Orderd Dishes: {result1} \n The List of Orderd Drinks: {result2}'
 
+    '''
+    returneaza sub forma de 
+    The List of Orderd Dishes: {2: 200} 
+    The List of Orderd Drinks: {1: 30, 2: 50}      
+    
+    unde 2:200 == ID:Pret
+                            
+    '''
+
 
 
 

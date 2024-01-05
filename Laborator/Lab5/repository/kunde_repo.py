@@ -2,6 +2,7 @@ from repository.datarepo import DataRepo
 from modelle.kunde import Customer
 import pickle
 
+
 '''
 in afara de read_file() si write_to_file() merge
 vezi implementare convert_from_string()
@@ -12,8 +13,7 @@ class CustomerRepo(DataRepo):
 
     def __init__(self):
 
-        super().__init__("customers.txt")
-        self.filename = self.__class__.__name__ + ".txt"
+        super().__init__("CustomerRepo.txt")
         self.customers = []
 
     def add_customers(self, customer: Customer):
@@ -72,6 +72,9 @@ class CustomerRepo(DataRepo):
 
         return self.customers
 
+    '''
+    without filter function
+    '''
 
     def search_after_partial_name(self, partial_name):
         matching_customers = []
@@ -85,15 +88,40 @@ class CustomerRepo(DataRepo):
 
         return matching_customers
 
-    def search_after_partial_address(self, partial_address):
-        matching_addresses = []
+
+    '''
+    with the filter function
+    '''
+
+    def search_after_partial_name_filt2(self, partial_name):
         all_customers = self.load_to_list()
 
-        partial_address = partial_address.lower()
+        matching_customers = filter(lambda customer: partial_name in customer.name, all_customers)
+        # Convert the filter object to a list
+        matching_customers = list(matching_customers)
 
-        for customer in all_customers:
-            if partial_address in customer.adresse.lower():
-                matching_addresses.append(customer)
+        return matching_customers
+
+
+
+    # def search_after_partial_address(self, partial_address):
+    #     matching_addresses = []
+    #     all_customers = self.load_to_list()
+    #
+    #     partial_address = partial_address
+    #
+    #     for customer in all_customers:
+    #         if partial_address in customer.adresse:
+    #             matching_addresses.append(customer)
+    #
+    #     return matching_addresses
+
+    def search_after_partial_address_with_filter(self, partial_address):
+        all_customers = self.load_to_list()
+
+        matching_addresses = filter(lambda customer: partial_address in customer.adresse, all_customers)
+
+        matching_addresses = list(matching_addresses)
 
         return matching_addresses
 
@@ -104,11 +132,7 @@ class CustomerRepo(DataRepo):
             if customer.name == old_name:
                 customer.name = new_name
                 break
-
-        with open(self.filename, 'wb') as f:
-            for customer in customers:
-                pickle.dump(customer, f)
-                f.write(b'\n')  # Add a separator between objects
+        self.save()
 
 
     # def read_file(self):

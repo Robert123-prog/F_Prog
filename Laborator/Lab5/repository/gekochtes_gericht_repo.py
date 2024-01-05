@@ -41,6 +41,23 @@ class CookedDishRepo(DataRepo):
                 return dish
         return None
 
+    def load_to_list(self): #se foloseste pentru search_after_partial_name
+        self.cookedDishes = []
+        with open(self.filename, 'rb') as f:
+            while True:
+                position = f.tell()  # Get current file position
+                try:
+                    cookedDish = pickle.load(f)
+                    self.cookedDishes.append(cookedDish)
+                except EOFError:
+                    break
+                except pickle.UnpicklingError:
+                    # Reset file position if pickle fails
+                    f.seek(position)
+                    f.readline()  # Move to the next line
+
+        return self.cookedDishes
+
 
     # def read_file(self):
     #     file_content = []
