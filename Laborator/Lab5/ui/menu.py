@@ -1,23 +1,8 @@
 from controller.controller import Controller
-# from modelle.kunde import Customer
-# from repository.kunde_repo import CustomerRepo
-# from repository.gekochtes_gericht_repo import CookedDishRepo
-# from repository.getrank_repo import DrinkRepo
-# from repository.bestellung_repo import OrderRepo
-from modelle.bestellung import Order
 
 class UI:
     def __init__(self):
-        #self.choice = choice
-        # self.cust_repo = CustomerRepo()
-        # self.cooked_dish_repo = CookedDishRepo()
-        # self.drink_repo = DrinkRepo()
-        # self.order_repo = OrderRepo()
         self.controller = Controller()
-        self.cooked_dish_id = 1
-        self.drink_id = 1
-        self.customer_id = 1
-        self.order_id = 1
 
 
 
@@ -234,195 +219,30 @@ class UI:
         else:
             self.main_menu()
     def main_menu(self):
-        print("""
+        while True:
+            print("""
+    
+                        1. Manage Customers
+                        2. Manage Menu
+                        3. Manage Orders
+                        4. Exit
+    
+    
+                        """)
 
-                    1. Manage Customers
-                    2. Manage Menu
-                    3. Manage Orders
-                    4. Exit
+            choice = int(input('Your choice: '))
 
+            if choice == 1:
+                self.manage_customers()
 
-                    """)
+            elif choice == 2:
+                self.manage_menu()
 
-        choice = int(input('Your choice: '))
+            elif choice == 3:
+                self.manage_orders()
 
-        if choice == 1:
-            self.manage_customers()
+            elif choice == 4:
+                break
 
-        elif choice == 2:
-            self.manage_menu()
-
-        elif choice == 3:
-            self.manage_orders()
-
-        else:
-            pass
-
-
-
-
-    # def main_menu(self):
-    #     print("""
-    #
-    #          1. Orders
-    #          2. Database
-    #
-    #
-    #         """)
-    #
-    # def orders(self):
-    #     print("""
-    #
-    #         1. Save Order
-    #         2. Load Order
-    #         3. Add Order
-    #
-    #         """)
-    #
-    # def database(self):
-    #     print('''
-    #
-    #         1. Modify Menu
-    #         2. Modify Customers
-    #
-    #          ''')
-    #
-    # def menu(self):
-    #     print("""
-    #
-    #         1. Modify Dishes
-    #         2. Modify Cooked Dishes
-    #         3. Modify Drinks
-    #
-    #         """)
-    #
-    # def dishes(self):
-    #     print("""
-    #
-    #         1. Save Dish
-    #         2. Load Dish
-    #         3. Add Dish
-    #
-    #         """)
-    #
-    # def cooked_dishes(self):
-    #     print("""
-    #
-    #         1. Save Cooked Dish
-    #         2. Load Cooked Dish
-    #         3. Add Cooked Dish
-    #
-    #         """)
-    #
-    # def drinks(self):
-    #     print("""
-    #
-    #         1. Save Drink
-    #         2. Load Drink
-    #         3. Add Drink
-    #
-    #         """)
-    #
-    # def customers(self):
-    #     print("""
-    #
-    #         1. Save Customer
-    #         2. Load Customer
-    #         3. Add Customer
-    #
-    #         """)
-
-
-
-
-
-
-
-
-
-
-
-
-# '''
-# mch - choice pe cum ar veni branchul principal
-# ich - choice pe fiecare brach in parte din meniu
-# ui trebuie facut ca si o clasa:((((
-# '''
-#
-# def menu():
-#
-#
-#
-#     print( """
-#
-#     1. Orders
-#     2. Database
-#
-#
-#     """)
-#
-#     mch = int(input('ch = '))
-#
-#     if mch == 1:
-#         pass
-#
-#     else:
-#         print('''
-#
-#         1. Modify Menu
-#         2. Modify Customers
-#
-#         ''')
-#
-#         mch1 = int(input('ch1 = '))
-#
-#         if mch1 == 1:
-#             print("""
-#
-#             1. Modify Dishes
-#             2. Modify Cooked Dishes
-#             3. Modify Drinks
-#
-#             """)
-#
-#             ich1 = int(input('ich1 = '))
-#
-#             if ich1 == 1:
-#                 print("""
-#
-#                 1. Save Dish
-#                 2. Load Dish
-#                 3. Add Dish
-#
-#                 """)
-#
-#             elif ich1 == 2:
-#                 print("""
-#
-#                 1. Save Cooked Dish
-#                 2. Load Cooked Dish
-#                 3. Add Cooked Dish
-#
-#                 """)
-#
-#             else:
-#                 print("""
-#
-#                 1. Save Drink
-#                 2. Load Drink
-#                 3. Add Drink
-#
-#                 """)
-#
-#         else:
-#             print("""
-#
-#             1. Save Customer
-#             2. Load Customer
-#             3. Add Customer
-#
-#             """)
-#
-#
-#
-# menu()
+            else:
+                print('Invalid choice!!!')

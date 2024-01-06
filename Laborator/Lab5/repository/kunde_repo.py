@@ -3,11 +3,6 @@ from modelle.kunde import Customer
 import pickle
 
 
-'''
-in afara de read_file() si write_to_file() merge
-vezi implementare convert_from_string()
-
-'''
 
 class CustomerRepo(DataRepo):
 
@@ -27,16 +22,14 @@ class CustomerRepo(DataRepo):
                 f.write(b'\n')  # Add a separator between objects
 
     '''
-    except pickle.UnpicklingError handles errors that may occur during unpickling 
-    (e.g., if the file format is corrupted or doesn't match the expected format). 
     
-    When this happens:
+    except pickle.UnpicklingError folosit pentru exceptiile care pot aparea cand dau load()
+    
+    Daca e cazul:
 
-    f.seek(position) resets the file position to where the last successful read occurred.
+    f.seek(position) reseteaza pozitia fisierului acolo unde s-a intamplat ultima citire care nu a dat eroare
 
-    f.readline() moves the file pointer to the start of the next line. 
-    This is done to try and skip over the problematic data to continue reading the next valid object. 
-    It assumes each object is on a separate line to help recover from the error.
+    f.readline() muta pointerul din fisier la inceputul liniei urmatoare 
     
     '''
 
@@ -44,36 +37,36 @@ class CustomerRepo(DataRepo):
         self.customers = []
         with open(self.filename, 'rb') as f:
             while True:
-                position = f.tell()  # Get current file position
+                position = f.tell()  # pozitia curenta din fisier
                 try:
                     customer = pickle.load(f)
                     self.customers.append(customer)
                 except EOFError:
                     break
                 except pickle.UnpicklingError:
-                        # Reset file position if pickle fails
+                        # reseteaza pozitia din fisier daca UnpicklingError
                     f.seek(position)
-                    f.readline()  # Move to the next line
+                    f.readline()  #citeste urmatoarea linie
 
     def load_to_list(self): #se foloseste pentru search_after_partial_name
         self.customers = []
         with open(self.filename, 'rb') as f:
             while True:
-                position = f.tell()  # Get current file position
+                position = f.tell()  # pozitia curenta din fisier
                 try:
                     customer = pickle.load(f)
                     self.customers.append(customer)
                 except EOFError:
                     break
                 except pickle.UnpicklingError:
-                    # Reset file position if pickle fails
+                    # reseteaza pozitia din fisier daca UnpicklingError
                     f.seek(position)
-                    f.readline()  # Move to the next line
+                    f.readline()  # citeste urmatoarea linie
 
         return self.customers
 
     '''
-    without filter function
+    fara filter()
     '''
 
     def search_after_partial_name(self, partial_name):
@@ -90,31 +83,37 @@ class CustomerRepo(DataRepo):
 
 
     '''
-    with the filter function
+    cu filter()
     '''
 
     def search_after_partial_name_filt2(self, partial_name):
         all_customers = self.load_to_list()
 
         matching_customers = filter(lambda customer: partial_name in customer.name, all_customers)
-        # Convert the filter object to a list
+
         matching_customers = list(matching_customers)
 
         return matching_customers
 
+    '''
+    fara filter()
+    '''
 
+    def search_after_partial_address(self, partial_address):
+        matching_addresses = []
+        all_customers = self.load_to_list()
 
-    # def search_after_partial_address(self, partial_address):
-    #     matching_addresses = []
-    #     all_customers = self.load_to_list()
-    #
-    #     partial_address = partial_address
-    #
-    #     for customer in all_customers:
-    #         if partial_address in customer.adresse:
-    #             matching_addresses.append(customer)
-    #
-    #     return matching_addresses
+        partial_address = partial_address
+
+        for customer in all_customers:
+            if partial_address in customer.adresse:
+                matching_addresses.append(customer)
+
+        return matching_addresses
+
+    '''
+    cu filter()
+    '''
 
     def search_after_partial_address_with_filter(self, partial_address):
         all_customers = self.load_to_list()
@@ -135,34 +134,27 @@ class CustomerRepo(DataRepo):
         self.save()
 
 
-    # def read_file(self):
-    #     f = open(self.filename, 'rb')
-    #     file_content = f.read()
-    #     content = []
-    #     customer_data = file_content.split(b'\n')
-    #
-    #     for customer_data in customer_data: #verif daca lista cutomer_data are elemente
-    #         customer = pickle.loads(customer_data)
-    #         content.append(customer)
-    #
-    #     f.close()
-    #     return content
+    def read_file(self):
+        f = open(self.filename, 'rb')
+        file_content = f.read()
+        content = []
+        customer_data = file_content.split(b'\n')
 
+        for customer_data in customer_data: #verif daca lista cutomer_data are elemente
+            customer = pickle.loads(customer_data)
+            content.append(customer)
 
-    # def write_to_file(self, string):
-    #     f = open(self.filename, 'ab')
-    #     pickle.dump(string, f)
-    #     f.write(b'\n')
-    #     f.close()
+        f.close()
+        return content
 
-    # def write_to_file(self, string):
-    #     f = open(self.filename, 'ab')
-    #
-    #     if type(string) ==  str:
-    #         f.write(string.encode() + b'\n')
-    #     else:
-    #         pickle.dump(string, f)
-    #         f.write(b'\n')
+    def write_to_file(self, string):
+        f = open(self.filename, 'ab')
+
+        if type(string) ==  str:
+            f.write(string.encode() + b'\n')
+        else:
+            pickle.dump(string, f)
+            f.write(b'\n')
 
 
     def convert_to_string(self):

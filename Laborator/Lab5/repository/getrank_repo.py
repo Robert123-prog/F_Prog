@@ -1,5 +1,4 @@
 from repository.datarepo import DataRepo
-from modelle.getrank import Drink
 import pickle
 
 class DrinkRepo(DataRepo):
@@ -23,16 +22,16 @@ class DrinkRepo(DataRepo):
         self.drinks = []
         with open(self.filename, 'rb') as f:
             while True:
-                position = f.tell()  # Get current file position
+                position = f.tell()  # pozitia curenta din fisier
                 try:
                     drink = pickle.load(f)
                     self.drinks.append(drink)
                 except EOFError:
                     break
                 except pickle.UnpicklingError:
-                        # Reset file position if pickle fails
+                        # reseteaza pozitia din fisier daca UnpicklingError
                     f.seek(position)
-                    f.readline()  # Move to the next line
+                    f.readline()  # citeste urmatoarea linie
 
     def get_drink_id(self, drink_id):
         for drink in self.drinks:
@@ -43,40 +42,40 @@ class DrinkRepo(DataRepo):
         self.drinks = []
         with open(self.filename, 'rb') as f:
             while True:
-                position = f.tell()  # Get current file position
+                position = f.tell()  #pozitia curenta din fisier
                 try:
                     drink = pickle.load(f)
                     self.drinks.append(drink)
                 except EOFError:
                     break
                 except pickle.UnpicklingError:
-                    # Reset file position if pickle fails
+                    #  reseteaza pozitia din fisier daca UnpicklingError
                     f.seek(position)
-                    f.readline()  # Move to the next line
+                    f.readline()  # citeste urmatoarea linie
 
         return self.drinks
 
 
-    # def read_file(self):
-    #     file_content = []
-    #     f = open(self.filename, 'rb')
-    #
-    #     while True:
-    #         try:
-    #             current_object = pickle.load(f)
-    #             file_content.append(current_object)
-    #
-    #         except EOFError:
-    #             break
-    #
-    #     f.close()
-    #     return file_content
-    #
-    #
-    # def write_to_file(self, string):
-    #     f = open(self.filename, 'ab')
-    #     pickle.dump(string, f)
-    #     f.close()
+    def read_file(self):
+        file_content = []
+        f = open(self.filename, 'rb')
+
+        while True:
+            try:
+                current_object = pickle.load(f)
+                file_content.append(current_object)
+
+            except EOFError:
+                break
+
+        f.close()
+        return file_content
+
+
+    def write_to_file(self, string):
+        f = open(self.filename, 'ab')
+        pickle.dump(string, f)
+        f.close()
 
 
     def convert_to_string(self):
@@ -85,5 +84,5 @@ class DrinkRepo(DataRepo):
 
     def convert_from_string(self, filename, str_list):
         pass
-        #cum plm convertesc un string la un obiect
+
 

@@ -39,22 +39,6 @@ class Controller:
     def show_total_cost(self, order: Order):
         print(order.calc_cost(self.cookedDish_repo, self.drink_repo))
 
-
-    '''
-    show_total_cost2 se bazeaza doar pe id-ul fiecarei comezi
-    NEFUNCTIONALA
-    '''
-
-    # def show_total_cost2(self, id_of_order):
-    #     orders = self.order_repo.load_to_list()
-    #
-    #     for order in orders:
-    #         if order.id == id_of_order:
-    #             return self.order.calc_cost(self.cookedDish_repo, self.drink_repo)
-    #
-    # def show_bill(self, order: Order):
-    #     return order.show_bill(self.cookedDish_repo, self.drink_repo)
-
     def search_for_customer(self, cust_partial_name):
         return self.customer_repo.search_after_partial_name_filt2(cust_partial_name)
 

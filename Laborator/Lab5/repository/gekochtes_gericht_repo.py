@@ -1,6 +1,6 @@
 import pickle
 from repository.datarepo import DataRepo
-from modelle.gekochtes_gericht import Cooked_Dish
+
 
 class CookedDishRepo(DataRepo):
 
@@ -24,16 +24,16 @@ class CookedDishRepo(DataRepo):
         self.cookedDishes = []
         with open(self.filename, 'rb') as f:
             while True:
-                position = f.tell()  # Get current file position
+                position = f.tell()  # pozitia curenta din fisier
                 try:
                     cookedDish = pickle.load(f)
                     self.cookedDishes.append(cookedDish)
                 except EOFError:
                     break
                 except pickle.UnpicklingError:
-                        # Reset file position if pickle fails
+                        # reseteaza pozitia din fisier daca UnpicklingError
                     f.seek(position)
-                    f.readline()  # Move to the next line
+                    f.readline()  # citeste urmatoarea linie
 
     def get_cookedDishID(self, dish_id):
         for dish in self.cookedDishes:
@@ -45,41 +45,42 @@ class CookedDishRepo(DataRepo):
         self.cookedDishes = []
         with open(self.filename, 'rb') as f:
             while True:
-                position = f.tell()  # Get current file position
+                position = f.tell()  #  pozitia curenta din fisier
                 try:
                     cookedDish = pickle.load(f)
                     self.cookedDishes.append(cookedDish)
                 except EOFError:
                     break
                 except pickle.UnpicklingError:
-                    # Reset file position if pickle fails
+                    # reseteaza pozitia din fisier daca UnpicklingError
                     f.seek(position)
-                    f.readline()  # Move to the next line
+                    f.readline()  # citeste urmatoarea linie
 
         return self.cookedDishes
 
 
-    # def read_file(self):
-    #     file_content = []
-    #     f = open(self.filename, 'rb')
-    #
-    #     while True:
-    #
-    #         try:
-    #             current_obj = pickle.load(f)
-    #             file_content.append(current_obj)
-    #
-    #         except EOFError:
-    #             break
-    #
-    #     f.close()
-    #     return file_content
-    #
-    #
-    # def write_to_file(self, string):
-    #     f = open(self.filename, 'ab')
-    #     pickle.dump(string, f)
-    #     f.close()
+    def read_file(self):
+        file_content = []
+        f = open(self.filename, 'rb')
+
+        while True:
+
+            try:
+                current_obj = pickle.load(f)
+                file_content.append(current_obj)
+
+            except EOFError:
+                break
+
+        f.close()
+        return file_content
+
+
+
+    def write_to_file(self, string):
+        f = open(self.filename, 'ab')
+        pickle.dump(string, f)
+        f.close()
 
 
     def convert_to_string(self):

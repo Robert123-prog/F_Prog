@@ -9,13 +9,12 @@ class Order(Identifizierbar):
         self.customer_id = customer_id
         self.list_of_dish_id = list_of_dish_id
         self.list_of_drink_id = list_of_drink_id
-        #self.total_cost = self.calc_cost()
+
 
     def __repr__(self):
         return (f'Order: ID = {self.id}, Customer ID = {self.customer_id}, '
                 f'IDs of Dishes = {self.list_of_dish_id}, '
                 f'IDs of Drinks = {self.list_of_drink_id}')
-                #f'Total Cost = {self.total_cost}')
 
 
     def calc_cost(self, dish_repo: CookedDishRepo, drink_repo: DrinkRepo):
@@ -41,7 +40,6 @@ class Order(Identifizierbar):
 
 
     def bill(self, dish_repo: CookedDishRepo, drink_repo: DrinkRepo):
-        #cu map ?????
         dishes = {}
         drinks = {}
 

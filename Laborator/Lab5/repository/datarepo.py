@@ -1,7 +1,5 @@
 from abc import ABC,abstractmethod
 
-
-
 class DataRepo(ABC):
 
     def __init__(self, filename):
@@ -16,13 +14,13 @@ class DataRepo(ABC):
     def load(self):
         pass
 
-    # @abstractmethod
-    # def read_file(self):
-    #     pass
+    @abstractmethod
+    def read_file(self):
+        pass
 
-    # @abstractmethod
-    # def write_to_file(self, string):
-    #     pass
+    @abstractmethod
+    def write_to_file(self, string):
+        pass
 
     @abstractmethod
     def convert_to_string(self):
